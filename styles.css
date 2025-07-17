@@ -199,31 +199,45 @@ body {
     background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 25%, #dbeafe 50%, #bfdbfe 75%, #f0f9ff 100%);
 }
 
-
 .hero-container {
-    
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
     width: 100%;
 }
 
-
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: -3rem;
-    align-items: center;
-    /* min-height: 80vh; */
+    gap: 3rem;
+    align-items: start;
+    min-height: 80vh;
 }
 
+/* First Column - Left Aligned */
 .hero-left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Second Column - Right Bottom Aligned */
+.hero-right {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    height: 100%;
 }
 
 .hero-title {
+    align-items: center;
+    justify-content: start;
+    justify-items: auto;
     font-size: clamp(2.5rem, 5vw, 3.7rem);
     margin-top: 2rem;
     font-weight: 800;
@@ -232,6 +246,8 @@ body {
 }
 
 .gradient-text {
+    align-items: center;
+    justify-content: flex-end;
     background: linear-gradient(135deg, #FFF7A7 0%, #FFD600 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -266,20 +282,6 @@ body {
     color: var(--text-secondary);
     min-height: 2rem;
 }
-
-/*
-.cursor {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    animation: blink 1s infinite;
-    margin-left: 0.25rem;
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-*/
 
 .hero-description {
     font-size: 1.25rem;
@@ -373,23 +375,120 @@ body {
 }
 
 .cat-photo-area {
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  display: block;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 20px;
+    display: block;
 }
 
 .profile-pic {
-  position: relative;
-  top: 0px;    /* Adjust these values for perfect placement */
-  right: -50px;
-  bottom: -20px;   /* Adjust these values for perfect placement */
-  width: 636.36px;
-  height: 545.45px;     /* Circular image *//* Optional: white border */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  z-index: 2; /* Ensure it appears above background elements */
-  display: block;
-  margin-bottom: 0;
+    position: relative;
+    top: 0px;
+    left: 70px;
+    right: 0px;
+    bottom: 0px;
+    width: 636.36px;
+    height: 545.45px;
+    object-fit: cover;
+    z-index: 2;
+    display: block;
+    margin-bottom: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+    }
+    
+    .hero-left {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-right {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        margin-top: 1rem;
+    }
+    .typing-container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .profile-pic {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-content {
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .typing-container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .profile-pic {
+        max-width: 300px;
+    }
+}
+
+/* Large screens - maintain the two-column layout */
+@media (min-width: 1024px) {
+    .hero-content {
+        gap: 4rem;
+    }
+    
+    .hero-left {
+        padding-left: 0px;
+    }
+    
+    .hero-right {
+        padding-left: 2rem;
+    }
 }
 
 .next-section {
