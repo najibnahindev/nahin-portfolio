@@ -152,7 +152,7 @@ body {
     color: var(--text-secondary);
     font-size: 1.2rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0rem;
     border-radius: var(--border-radius);
     transition: var(--transition);
 }
@@ -166,7 +166,7 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 0.25rem;
+    gap: 0rem;
 }
 
 .hamburger span {
@@ -239,7 +239,7 @@ body {
     justify-content: start;
     justify-items: auto;
     font-size: clamp(2.5rem, 5vw, 3.7rem);
-    margin-top: 2rem;
+    margin-top: 4rem;
     font-weight: 800;
     line-height: 1.2;
     color: var(--text-primary);
@@ -453,6 +453,7 @@ body {
     }
     
     .hero-title {
+        margin-top: 20px;
         font-size: clamp(1.8rem, 3.5vw, 2.2rem);
     }
     
