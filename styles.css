@@ -60,15 +60,15 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 3rem;
 }
 
 /* Navigation */
 .navbar {
-    position: fixed;
-    top: 0;
+    position: relative;
+    top: 2px;
     left: 0;
-    right: 0;
+    right: 20px;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
@@ -147,35 +147,96 @@ body {
 }
 
 .theme-toggle {
-    background: none;
-    border: none;
-    color: var(--text-secondary);
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    top: 90px; /* Header height (70px) + 20px gap */
+    right: 20px;
+    z-index: 999;
+    background: var(--primary-color);
+    border: 10px solid transparent;
+    color: var(--bg-primary);
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0rem;
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     transition: var(--transition);
     align-items: end;
 }
 
 .theme-toggle:hover {
-    color: var(--primary-color);
+    color: var(--bg-secondary);
     background-color: rgba(99, 102, 241, 0.1);
 }
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
-    gap: 0rem;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+
+.hamburger:hover {
+    background: rgba(255,255,255,0.1);
 }
 
 .hamburger span {
-    width: 1.5rem;
+    display: block;
+    width: 28px;
     height: 2px;
-    background-color: var(--text-primary);
-    transition: var(--transition);
+    background: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-radius: 20px;
 }
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+[data-theme="light"] .hamburger:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .hamburger span {
+    background: #333;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .hamburger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .hamburger span {
+    background: white;
+}
+
+/* Adjust breakpoint if needed */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
+
+
 
 /* Hero Section */
 .hero {
@@ -386,8 +447,8 @@ body {
 .profile-pic {
     position: relative;
     top: 0px;
-    left: 70px;
-    right: 0px;
+    left: 50px;
+    right:50px;
     bottom: 0px;
     width: 636.36px;
     height: 545.45px;
